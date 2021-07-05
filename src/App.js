@@ -1,10 +1,15 @@
+import React from 'react';
 import './App.css';
+import CharacterCard from './CharacterCard';
 
 function App() {
-    return ( <
-        div className = "App" >
-        Hello World <
-        /div>
+    return ( 
+        < div >
+           <CharacterCard/>
+           <CharacterCard/>
+           <CharacterCard/>
+           <CharacterCard/>
+        </div>
     );
 }
 
