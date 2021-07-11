@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import _, { attempt } from 'lodash';
 import CharacterCard from './CharacterCard';
 
-   
 const prepareStateFromWord = (given_word) => {
     let word = given_word.toUpperCase()
     let chars = _.shuffle(Array.from(word))
@@ -18,11 +17,11 @@ const prepareStateFromWord = (given_word) => {
 export default function WordCard(props) {
 
     const [state, setState] = useState(prepareStateFromWord(props.value))
-
     const activationHandler = c => {
         // console.log(`${c} has been activated`)
 
         let guess = state.guess + c
+        
         setState({...state, guess})
         // console.log(guess)
 
@@ -42,6 +41,15 @@ export default function WordCard(props) {
                 setTimeout(() => {
                     props.setWord("")
                 }, 2000);
+
+                props.setFail(props.fail + 1)
+                // console.log(props.fail);
+                if(props.fail > 2){
+                    props.setWord("You Noob")
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000);
+                }
             }
         }
     }
@@ -52,7 +60,6 @@ export default function WordCard(props) {
                     <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} />
                 )
             }
-            
             <h1>{props.word}</h1>
         </div>
     )
