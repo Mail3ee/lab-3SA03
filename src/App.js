@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import WordCard from './WordCard';
 import _, { attempt } from 'lodash';
 
-const word = (["Hello", "Hi-COE", "Test123", "Good-Morning"]);
+const text = (["Hello", "Hi-COE", "Test123", "Good-Morning"]);
+
 function App() {
+    const [word, setWord] = useState("");
+
     return ( 
         < div >
-            <WordCard value={_.sample(word)}/>
+            <WordCard value={_.sample(text)} word = {word} setWord = {setWord}  />
         </div>
     );
 }
