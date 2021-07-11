@@ -9,3 +9,11 @@
 3. แสดงสถานะเมื่อทำสำเร็จไม่สำเร็จ เป็นเวลาตามที่กำหนด
     * ใน function WordCard ใน Component WordCard เรียกใช้ props.setWord("Fail!!") เพื่อส่งข้อความ Fail!! ไปแสดงผลเมื่อผู้เล่นทำงานไม่ถูกต้อง
     * แสดงผล 2 วินาที โดยใช้ function setTimeout และเปลี่ยนค่า word เป็น ""
+4. รีเฟรซหน้าเมื่อทำงานถูกต้อง 
+    * ใน function WordCard ใน Component WordCard เรียกใช้  function setTimeout เพื่อหน่วงเวลา และใช้  window.location.reload() เพื่อรีเฟรซเว็บเพจ
+    ```js 
+        setTimeout(() => {
+            window.location.reload()
+        }, 2000);
+    ```
+                   

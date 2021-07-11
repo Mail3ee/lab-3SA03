@@ -32,6 +32,9 @@ export default function WordCard(props) {
                 setState({...state, guess:'', completed: true, attempt: 1 })
                 // SetStatus("Success")
                 props.setWord("Success")
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000);
             }else {
                 console.log("Reset")
                 setState({...state, guess:'', attempt: state.attempt + 1})
