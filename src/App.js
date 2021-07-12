@@ -9,10 +9,19 @@ function App() {
     const [word, setWord] = useState("");
     const [fail, setFail] = useState(1);
 
+    const newGame = () => {
+        window.location.reload()
+    }
+
     return ( 
         < div >
             <WordCard value={_.sample(text)} word = {word} setWord = {setWord} fail = {fail} setFail = {setFail}  />
+            <button className="newgame" onClick={newGame}>
+                New Game
+            </button>
         </div>
+
+       
     );
 }
 
